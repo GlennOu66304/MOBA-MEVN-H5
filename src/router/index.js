@@ -1,7 +1,5 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-// import Index from '@/views/index.vue'
-// import Login from '@/views/Login.vue'
 
 Vue.use(VueRouter);
 
@@ -21,25 +19,17 @@ const routes = [
         component: () => import("@/views/Home.vue"),
       },
       {
-        path: "/order",
-        name: "order",
-        component: () => import("@/views/Order.vue"),
+        path: "/learn",
+        name: "learn",
+        component: () => import("@/views/Learn.vue"),
       },
       {
-        path: "/me",
-        name: "me",
-        component: () => import("@/views/Me.vue"),
+        path: "/battle",
+        name: "battle",
+        component: () => import("@/views/Battle.vue"),
       },
-      {
-        path: "/address",
-        name: "address",
-        component: () => import("@/views/Address.vue"),
-      },
-      {
-        path: "/city",
-        name: "city",
-        component: () => import("@/views/City.vue"),
-      },
+      
+  
     ],
   },
   {

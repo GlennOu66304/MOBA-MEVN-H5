@@ -3,21 +3,7 @@
     <div class="logo">
       <img src="../assets/logo.jpg" alt="logo" />
     </div>
-    <InputGroup
-      type="number"
-      v-model="phone"
-      placeholder="手机号"
-      :btnTitle="btnTitle"
-      :disabled="disabled"
-      :error="errors.phone"
-      @btnClick="getVerifyCode"
-    />
-    <InputGroup
-      type="number"
-      v-model="verifyCode"
-      placeholder="验证码"
-      :error="errors.code"
-    />
+
     <div class="login_des">
       <p>新用户登陆即自动注册 <span>《用户服务协议》</span></p>
     </div>
@@ -28,9 +14,13 @@
 </template>
 
 <script>
-import InputGroup from "../components/inputGroup.vue";
 export default {
   name: "login",
+
+  components: {
+    InputGroup,
+  },
+
   data() {
     return {
       phone: "",
@@ -40,6 +30,14 @@ export default {
       disabled: false,
     };
   },
+
+  computed: {
+    isClick() {
+      if (!this.phone || !this.verifyCode) return true;
+      else return false;
+    },
+  },
+
   methods: {
     handleLogin() {
       this.errors = {};
@@ -102,16 +100,7 @@ export default {
         return true;
       }
     },
-  },
-  computed: {
-    isClick() {
-      if (!this.phone || !this.verifyCode) return true;
-      else return false;
-    },
-  },
-  components: {
-    InputGroup,
-  },
+  }
 };
 </script>
 
