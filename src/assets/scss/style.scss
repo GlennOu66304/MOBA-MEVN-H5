@@ -133,14 +133,14 @@ p {
       border-bottom:3px solid #fff ;
     }
   }
-  // &.nav-inverse {
-  //   .nav-item {
-  //     color: map-get($colors, 'white');
-  //     &.active {
-  //       border-bottom-color: map-get($colors, 'white');
-  //     }
-  //   }
-  // }
+  &.nav-inverse {
+    .nav-item {
+      color: map-get($colors, 'white');
+      &.active {
+        border-bottom-color: map-get($colors, 'white');
+      }
+    }
+  }
   
 }
 

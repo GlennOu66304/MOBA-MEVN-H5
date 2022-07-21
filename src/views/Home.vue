@@ -28,6 +28,64 @@
         slot="pagination"
       ></div>
     </swiper>
+    <!-- sprite section -->
+
+    <div
+      class="nav-icons bg-white mt-3 d-flex flex-wrap pt-3 text-dark-1 text-center"
+    >
+      <div class="nav-item mb-3" v-for="n in 10" :key="n">
+        <i class="sprite sprite-news"></i>
+        <div class="py-2">爆料站</div>
+      </div>
+    </div>
+
+    <div class="bg-light py-2 fs-sm d-flex ai-center">
+      <!-- <i class="sprite sprite-arrow"></i> -->
+      <span class="collaps">
+        <i class="sprite sprite-arrow"></i>
+        收起</span
+      >
+    </div>
+    <!-- news section -->
+    <!-- <span class="iconfont icon-Menu">新闻资讯</span>
+      <span class="iconfont icon-menu">新闻资讯</span> -->
+    <m-card title="新闻咨询" icon="Menu">
+      <!-- nav bar -->
+      <div class="nav jc-between">
+        <div class="nav-item">
+          <div class="nav-Link active">热门</div>
+        </div>
+        <div class="nav-item">
+          <div class="nav-Link">新闻</div>
+        </div>
+        <div class="nav-item">
+          <div class="nav-Link">公告</div>
+        </div>
+        <div class="nav-item">
+          <div class="nav-Link">活动</div>
+        </div>
+        <div class="nav-item">
+          <div class="nav-Link">赛事</div>
+        </div>
+      </div>
+
+      <!-- content below -->
+      <div class="content pt-3">
+        <swiper >
+          <swiper-slide v-for="n in 5" :key="n">
+            <div class="py-2" v-for="n in 5" :key="n">
+              <span>[新闻]</span>
+              <span>|</span>
+              <span>王者荣耀夏日直播节福利 虎牙专属回城免费领！</span>
+              <span>07/21</span>
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
+    </m-card>
+    <!-- hero sections -->
+    <!-- <span class="iconfont icon-yingxiongxiangqing">新闻资讯</span> -->
+    <m-card title="英雄列表" icon="yingxiongxiangqing"></m-card>
   </div>
 </template>
 
@@ -53,11 +111,11 @@ export default {
   .swiper-pagination-bullet {
     opacity: 1;
     border-radius: 0.1538rem;
-    // background: map-get($colors, "white");
-    background: #fff;
+    background: map-get($colors, "white");
+    // background: #fff;
     &.swiper-pagination-bullet-active {
-      // background: map-get($colors, "info");
-      background: #000;
+      background: map-get($colors, "info");
+      // background: #000;
     }
   }
 }
@@ -67,10 +125,30 @@ export default {
   border-bottom: 1px solid $border-color;
   .nav-item {
     width: 25%;
-    border-right: 1px solid $border-color;
-    &:nth-child(4n) {
-      border-right: none;
+    border-left: 1px solid $border-color;
+    &:nth-child(4n + 1) {
+      border-left: none;
     }
   }
+}
+// http://www.spritecow.com/
+// find the position of the sprite
+.sprite {
+  background: url("../assets/images/index.png") no-repeat 0 0;
+  background-size: 28.8462rem;
+  display: inline-block;
+  &.sprite-news {
+    width: 1.7692rem;
+    height: 1.5385rem;
+    background-position: 63.546% 15.517%;
+  }
+  &.sprite-arrow {
+    height: 0.625rem;
+    width: 0.625rem;
+    background-position: 38.577% 52.076%;
+  }
+}
+.collaps {
+  margin-left: 180px;
 }
 </style>
