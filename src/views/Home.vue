@@ -118,7 +118,7 @@ export default {
   },
   methods: {
     async loadData() {
-      await this.$axios.get("/api/newslist").then((res) => {
+      await this.$axios.get(`${process.env.VUE_APP_API}/api/newslist`).then((res) => {
         // console.log(res.data);
         this.newsCats = res.data;
         // this.filterTableData = res.data;
