@@ -52,8 +52,8 @@
     <m-card title="新闻咨询" icon="Menu">
       <!-- nav bar -->
       <div class="nav jc-between">
-        <div class="nav-item">
-          <div class="nav-Link active">热门</div>
+        <div class="nav-item active">
+          <div class="nav-Link">热门</div>
         </div>
         <div class="nav-item">
           <div class="nav-Link">新闻</div>
@@ -73,19 +73,26 @@
       <div class="content pt-3">
         <swiper >
           <swiper-slide v-for="n in 5" :key="n">
-            <div class="py-2" v-for="n in 5" :key="n">
-              <span>[新闻]</span>
+            <!-- big area -->
+            <div v-for="(item, index) in newsCat" :key="index">     
+
+            <div class="py-2" v-for="x in item" :key="x.name">
+              <span>{x.name }</span>
               <span>|</span>
               <span>王者荣耀夏日直播节福利 虎牙专属回城免费领！</span>
               <span>07/21</span>
+            </div>
+
             </div>
           </swiper-slide>
         </swiper>
       </div>
     </m-card>
     <!-- hero sections -->
-    <!-- <span class="iconfont icon-yingxiongxiangqing">新闻资讯</span> -->
+    <!-- <span class="iconfon icon-yingxiongxiangqing">新闻资讯</span> -->
     <m-card title="英雄列表" icon="yingxiongxiangqing"></m-card>
+    <m-card title="精彩视频" icon="Menu"></m-card>
+    <m-card title="百变使者" icon="Menu"></m-card>
   </div>
 </template>
 
@@ -93,6 +100,7 @@
 export default {
   name: "home",
   components: {},
+
   data() {
     return {
       swiperOptions: {
@@ -100,7 +108,26 @@ export default {
           el: ".pagination-home",
         },
       },
+      newsCat: [],
     };
+  },
+
+  created() {
+    // load the table data first
+    this.loadData();
+  },
+  methods: {
+    async loadData() {
+      await this.$axios.get("/api/newslist").then((res) => {
+        // console.log(res.data);
+        this.newsCats = res.data;
+        // this.filterTableData = res.data;
+        // this.total = res.data.length;
+        // this.profileList = this.allProfileList.filter((item, index) => {
+        //   return index < this.pagesize;
+        // });
+      });
+    },
   },
 };
 </script>

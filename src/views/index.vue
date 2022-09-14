@@ -15,7 +15,7 @@
       <!-- <div class="nav d-flex text-white jc-around">
         <TabBar :data="tabbarData" />
       </div> -->
-       <TabBar :data="tabbarData" />
+      <TabBar :data="tabbarData" />
     </div>
 
     <router-view> </router-view>
@@ -43,9 +43,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style langg="scss" scoped>
 .index {
   /* width: 100%; */
   /* height: calc(100%- 45px); */
+}
+.banner {
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 </style>

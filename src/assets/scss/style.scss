@@ -130,7 +130,7 @@ p {
     &.active {
       // color: map-get($colors, 'primary');
       // border-bottom-color: map-get($colors, 'primary');
-      border-bottom:3px solid #fff ;
+      border-bottom:3px solid rgb(129, 148, 10) ;
     }
   }
   &.nav-inverse {

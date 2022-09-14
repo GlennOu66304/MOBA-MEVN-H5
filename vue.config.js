@@ -7,11 +7,11 @@ module.exports = {
         hotOnly: false,
         proxy: {
             '/api': {
-                target: 'https://eleme4-2021.herokuapp.com/api',
+                target: 'http://localhost:8800',
                 ws: true,
                 changrigin: true,
                 pathRewrite: {
-                    '^/api': ''
+                    '^/api': '/api'
                 }
 
             }
